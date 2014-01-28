@@ -1,0 +1,108 @@
+.ff_wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.ff_wrapper .page_turn {
+    position: absolute;
+    top: 50%;
+    margin-top: -20px;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #000;
+    color: #000;
+    background-color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    text-align: center;
+    opacity: 0.1;
+    transition: opacity 100ms linear;
+    z-index: 1;
+}
+
+.ff_wrapper .page_turn:hover {
+    opacity: 0.5;
+}
+
+.ff_wrapper .page_turn:after {
+    display: block;
+    line-height: 40px;
+    font-weight: bold;
+}
+
+.ff_wrapper .page_turn.left {
+    left: 5%;
+    margin-left: 5px;
+}
+
+.ff_wrapper .page_turn.left:after {
+    content: "<";
+}
+
+.ff_wrapper .page_turn.right {
+    right: 5%;
+    margin-right: 5px;
+}
+
+.ff_wrapper .page_turn.right:after {
+    content: ">";
+}
+
+ul.fancyFlip {
+    display: block;
+    position: absolute;
+    top: 5%;
+    bottom: 5%;
+    left: 5%;
+    right: 5%;
+    border: 1px solid black;
+    padding: 0;
+    margin: 0;
+}
+ul.fancyFlip > li {
+    display: block;
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    right: 0px;
+    overflow: hidden;
+    transition: transform 500ms ease;
+}
+ul.fancyFlip > li > div {
+    background-color: white;
+    border: solid #ccc;
+    border-width: 0 1px;
+    height: 100%;
+    padding: 0 6px;
+    overflow: hidden;
+    transition: transform 500ms ease;
+}
+ul.fancyFlip > li:nth-child(2n) {
+    transform-origin: 50% -100% 0;
+    transform: rotate(-32deg) translate(-71%, -33%);
+}
+ul.fancyFlip > li:nth-child(2n) > div {
+    transform-origin: 50% -100% 0;
+    transform: rotate(-37deg) translate(0, 37%);
+}
+ul.fancyFlip > li:nth-child(2n).turned {
+    transform: rotate(0deg) translate(-100%, 0);
+}
+ul.fancyFlip > li:nth-child(2n).turned > div {
+    transform: translate(0, 0) rotate(0deg);
+}
+ul.fancyFlip > li:nth-child(2n+3) {
+    transform-origin: 50% -100% 0;
+    transform: translate(0%, -38%) rotate(-32deg);
+}
+ul.fancyFlip > li:nth-child(2n+3) > div {
+    transform-origin: 50% -100% 0;
+    transform: rotate(32deg) translate(0, 38%);
+}
+ul.fancyFlip > .turned + li:nth-child(2n+3) {
+    transform: translate(0, 0) rotate(0deg);
+}
+ul.fancyFlip > .turned + li:nth-child(2n+3) div {
+    transform-origin: 50% -100% 0;
+    transform: rotate(0deg) translate(0, 0);
+}
